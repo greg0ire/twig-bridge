@@ -95,6 +95,54 @@ class FormExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
     }
 
     /**
+     * @internal
+     */
+    public function __get($name)
+    {
+        if ('renderer' === $name) {
+            @trigger_error(sprintf('Using the "%s::$renderer" property is deprecated since version 3.2 as it will be made private in 4.0.', __CLASS__), E_USER_DEPRECATED);
+        }
+
+        return $this->$name;
+    }
+
+    /**
+     * @internal
+     */
+    public function __set($name, $value)
+    {
+        if ('renderer' === $name) {
+            @trigger_error(sprintf('Using the "%s::$renderer" property is deprecated since version 3.2 as it will be made private in 4.0.', __CLASS__), E_USER_DEPRECATED);
+        }
+
+        $this->$name = $value;
+    }
+
+    /**
+     * @internal
+     */
+    public function __isset($name)
+    {
+        if ('renderer' === $name) {
+            @trigger_error(sprintf('Using the "%s::$renderer" property is deprecated since version 3.2 as it will be made private in 4.0.', __CLASS__), E_USER_DEPRECATED);
+        }
+
+        return isset($this->$name);
+    }
+
+    /**
+     * @internal
+     */
+    public function __unset($name)
+    {
+        if ('renderer' === $name) {
+            @trigger_error(sprintf('Using the "%s::$renderer" property is deprecated since version 3.2 as it will be made private in 4.0.', __CLASS__), E_USER_DEPRECATED);
+        }
+
+        unset($this->$name);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getName()
